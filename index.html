@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma Digital Integral de Salud Mental</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>MentalCare</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#recursos">Recursos</a></li>
+                    <li><a href="#autoevaluacion">Autoevaluación</a></li>
+                    <li><a href="#profesionales">Profesionales</a></li>
+                    <li><a href="#comunidad">Comunidad</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1>Tu bienestar mental es nuestra prioridad</h1>
+                <p>Accede a recursos confiables, herramientas de autoevaluación y conecta con profesionales certificados</p>
+                <div class="cta-buttons">
+                    <button class="btn-primary" onclick="scrollToSection('recursos')">Comenzar ahora</button>
+                    <button class="btn-secondary" onclick="showEmergencyModal()">Buscar ayuda inmediata</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-heart"></i>
+            </div>
+        </section>
+
+        <section id="recursos" class="resources">
+            <div class="container">
+                <h2>Recursos Educativos</h2>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <i class="fas fa-book"></i>
+                        <h3>Artículos</h3>
+                        <p>Información actualizada sobre trastornos mentales, síntomas y tratamientos</p>
+                        <button class="btn-outline" onclick="showArticles()">Ver artículos</button>
+                    </div>
+                    <div class="resource-card">
+                        <i class="fas fa-video"></i>
+                        <h3>Videos</h3>
+                        <p>Contenido audiovisual educativo sobre técnicas de manejo emocional</p>
+                        <button class="btn-outline" onclick="showVideos()">Ver videos</button>
+                    </div>
+                    <div class="resource-card">
+                        <i class="fas fa-download"></i>
+                        <h3>Recursos Descargables</h3>
+                        <p>Guías, ejercicios y herramientas para el autocuidado mental</p>
+                        <button class="btn-outline" onclick="showDownloads()">Descargar</button>
+                    </div>
+                    <div class="resource-card">
+                        <i class="fas fa-phone"></i>
+                        <h3>Líneas de Crisis</h3>
+                        <p>Números de emergencia y apoyo disponibles 24/7</p>
+                        <button class="btn-outline" onclick="showEmergencyContacts()">Ver contactos</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="autoevaluacion" class="self-assessment">
+            <div class="container">
+                <h2>Herramientas de Autoevaluación</h2>
+                <div class="assessment-intro">
+                    <p>Evalúa tu estado emocional actual con nuestros cuestionarios confidenciales y anónimos</p>
+                </div>
+                <div class="assessment-grid">
+                    <div class="assessment-card">
+                        <i class="fas fa-clipboard-check"></i>
+                        <h3>Test de Ansiedad</h3>
+                        <p>Evalúa tus niveles de ansiedad</p>
+                        <button class="btn-primary" onclick="startAssessment('ansiedad')">Iniciar test</button>
+                    </div>
+                    <div class="assessment-card">
+                        <i class="fas fa-heart-broken"></i>
+                        <h3>Test de Depresión</h3>
+                        <p>Identifica síntomas depresivos</p>
+                        <button class="btn-primary" onclick="startAssessment('depresion')">Iniciar test</button>
+                    </div>
+                    <div class="assessment-card">
+                        <i class="fas fa-bed"></i>
+                        <h3>Calidad del Sueño</h3>
+                        <p>Evalúa tus patrones de sueño</p>
+                        <button class="btn-primary" onclick="startAssessment('sueno')">Iniciar test</button>
+                    </div>
+                    <div class="assessment-card">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3>Estrés General</h3>
+                        <p>Mide tus niveles de estrés</p>
+                        <button class="btn-primary" onclick="startAssessment('estres')">Iniciar test</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="profesionales" class="professionals">
+            <div class="container">
+                <h2>Directorio de Profesionales</h2>
+                <div class="search-filters">
+                    <input type="text" id="searchProfessional" placeholder="Buscar por nombre o especialidad">
+                    <select id="specialtyFilter">
+                        <option value="">Todas las especialidades</option>
+                        <option value="psicologia">Psicología</option>
+                        <option value="psiquiatria">Psiquiatría</option>
+                        <option value="terapia-familiar">Terapia Familiar</option>
+                        <option value="adicciones">Adicciones</option>
+                    </select>
+                    <select id="locationFilter">
+                        <option value="">Todas las ubicaciones</option>
+                        <option value="lima">Lima</option>
+                        <option value="arequipa">Arequipa</option>
+                        <option value="trujillo">Trujillo</option>
+                    </select>
+                </div>
+                <div class="professionals-grid" id="professionalsGrid">
+                    <div class="professional-card" data-specialty="psicologia" data-location="lima">
+                        <div class="professional-image">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3>Dra. María González</h3>
+                        <p class="specialty">Psicología Clínica</p>
+                        <p class="location">Lima, Perú</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>4.9</span>
+                        </div>
+                        <button class="btn-primary" onclick="scheduleAppointment('Dra. María González')">Agendar cita</button>
+                    </div>
+                    <div class="professional-card" data-specialty="psiquiatria" data-location="lima">
+                        <div class="professional-image">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3>Dr. Carlos Mendoza</h3>
+                        <p class="specialty">Psiquiatría</p>
+                        <p class="location">Lima, Perú</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>4.8</span>
+                        </div>
+                        <button class="btn-primary" onclick="scheduleAppointment('Dr. Carlos Mendoza')">Agendar cita</button>
+                    </div>
+                    <div class="professional-card" data-specialty="terapia-familiar" data-location="arequipa">
+                        <div class="professional-image">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3>Lic. Ana Rodríguez</h3>
+                        <p class="specialty">Terapia Familiar</p>
+                        <p class="location">Arequipa, Perú</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.7</span>
+                        </div>
+                        <button class="btn-primary" onclick="scheduleAppointment('Lic. Ana Rodríguez')">Agendar cita</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="comunidad" class="community">
+            <div class="container">
+                <h2>Comunidad Virtual</h2>
+                <div class="community-intro">
+                    <p>Un espacio seguro para compartir experiencias y obtener apoyo mutuo</p>
+                </div>
+                <div class="community-features">
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Grupos de Apoyo</h3>
+                        <p>Únete a grupos específicos según tus necesidades</p>
+                        <button class="btn-outline" onclick="showSupportGroups()">Ver grupos</button>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-comments"></i>
+                        <h3>Foros de Discusión</h3>
+                        <p>Participa en conversaciones moderadas por profesionales</p>
+                        <button class="btn-outline" onclick="showForums()">Acceder foros</button>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-calendar"></i>
+                        <h3>Eventos Virtuales</h3>
+                        <p>Talleres, charlas y actividades en línea</p>
+                        <button class="btn-outline" onclick="showEvents()">Ver eventos</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MentalCare</h3>
+                    <p>Comprometidos con tu bienestar mental</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="#" onclick="showArticles()">Artículos</a></li>
+                        <li><a href="#" onclick="showVideos()">Videos</a></li>
+                        <li><a href="#" onclick="showDownloads()">Descargas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Ayuda</h4>
+                    <ul>
+                        <li><a href="#" onclick="showContact()">Contacto</a></li>
+                        <li><a href="#" onclick="showFAQ()">FAQ</a></li>
+                        <li><a href="#" onclick="showEmergencyContacts()">Emergencias</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Emergencia 24/7</h4>
+                    <p><strong>Línea de Crisis:</strong> 113</p>
+                    <p><strong>WhatsApp:</strong> +51 999 123 456</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MentalCare. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para Evaluaciones -->
+    <div id="assessmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="assessmentTitle">Test de Evaluación</h2>
+            <div id="assessmentContent">
+                <div class="question-container">
+                    <p id="questionText"></p>
+                    <div class="options-container" id="optionsContainer"></div>
+                </div>
+                <div class="navigation-buttons">
+                    <button id="prevBtn" class="btn-secondary">Anterior</button>
+                    <button id="nextBtn" class="btn-primary">Siguiente</button>
+                    <button id="submitBtn" class="btn-primary" style="display:none;">Finalizar</button>
+                </div>
+            </div>
+            <div id="resultsContent" style="display:none;">
+                <h3>Resultados de tu evaluación</h3>
+                <div id="resultText"></div>
+                <div id="recommendations"></div>
+                <button id="closeResults" class="btn-primary">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Contenido General -->
+    <div id="contentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeContentModal()">&times;</span>
+            <div id="contentModalBody"></div>
+        </div>
+    </div>
+
+    <!-- Modal para Emergencias -->
+    <div id="emergencyModal" class="modal">
+        <div class="modal-content emergency-modal">
+            <span class="close" onclick="closeEmergencyModal()">&times;</span>
+            <h2><i class="fas fa-exclamation-triangle"></i> Necesitas Ayuda Inmediata</h2>
+            <div class="emergency-content">
+                <div class="crisis-warning">
+                    <p><strong>Si estás en peligro inmediato o tienes pensamientos de autolesión, contacta:</strong></p>
+                </div>
+                <div class="emergency-contacts">
+                    <div class="emergency-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Línea Nacional de Prevención del Suicidio</strong>
+                            <p>113 - Disponible 24/7</p>
+                        </div>
+                    </div>
+                    <div class="emergency-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <strong>WhatsApp de Crisis</strong>
+                            <p>+51 999 123 456</p>
+                        </div>
+                    </div>
+                    <div class="emergency-item">
+                        <i class="fas fa-hospital"></i>
+                        <div>
+                            <strong>Emergencias Médicas</strong>
+                            <p>106 - SAMU</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="immediate-actions">
+                    <h4>Acciones Inmediatas:</h4>
+                    <ul>
+                        <li>No te quedes solo/a - llama a alguien de confianza</li>
+                        <li>Ve a la sala de emergencias más cercana</li>
+                        <li>Habla con el chatbot de emergencia</li>
+                    </ul>
+                </div>
+                <button class="btn-primary" onclick="startEmergencyChat()">Chatbot de Emergencia</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot -->
+    <div id="chatbot" class="chatbot">
+        <div class="chatbot-header" onclick="toggleChatbot()">
+            <i class="fas fa-comments"></i>
+            <span>Asistente Mental</span>
+            <div class="chatbot-toggle">
+                <i class="fas fa-chevron-up" id="chatToggleIcon"></i>
+            </div>
+        </div>
+        <div class="chatbot-body" id="chatbotBody">
+            <div class="chat-messages" id="chatMessages">
+                <div class="bot-message">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        ¡Hola! Soy tu asistente de salud mental. ¿En qué puedo ayudarte hoy?
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" id="chatInput" placeholder="Escribe tu mensaje..." onkeypress="handleChatKeyPress(event)">
+                <button onclick="sendMessage()" class="chat-send-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <div class="quick-options">
+                <button class="quick-btn" onclick="quickMessage('Me siento ansioso')">Ansiedad</button>
+                <button class="quick-btn" onclick="quickMessage('Me siento triste')">Tristeza</button>
+                <button class="quick-btn" onclick="quickMessage('No puedo dormir')">Insomnio</button>
+                <button class="quick-btn" onclick="quickMessage('Necesito ayuda profesional')">Buscar ayuda</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
