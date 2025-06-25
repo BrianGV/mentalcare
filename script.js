@@ -1029,40 +1029,9 @@ function addChatbotStyles() {
     document.head.appendChild(style);
 }
 
-// Llamar a la función cuando se carga la página
+// Llamar a la función cuando se carga la página - SOLO para estilos
 document.addEventListener('DOMContentLoaded', function() {
     addChatbotStyles();
+    // Eliminamos cualquier inicialización de modal aquí
 });
 
-// Función para mostrar recursos por categoría
-function showResourcesByCategory(category) {
-    const relevantArticles = allArticles.filter(article => article.category === category);
-    const contentModal = document.getElementById('contentModal');
-    const contentModalBody = document.getElementById('contentModalBody');
-    
-    const categoryNames = {
-        'ansiedad': 'Ansiedad',
-        'depresion': 'Depresión',
-        'tecnicas': 'Técnicas de Bienestar',
-        'sueno': 'Sueño',
-        'bienestar': 'Bienestar General'
-    };
-    
-    contentModalBody.innerHTML = `
-        <h2>Recursos sobre ${categoryNames[category] || category}</h2>
-        <div class="category-resources">
-            ${relevantArticles.map(article => `
-                <div class="article-card" style="margin-bottom: 20px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px;">
-                    <h3>${article.title}</h3>
-                    <p>${article.content}</p>
-                </div>
-            `).join('')}
-            ${relevantArticles.length === 0 ? '<p>No hay recursos específicos para esta categoría por el momento.</p>' : ''}
-        </div>
-        <div style="margin-top: 20px;">
-            <button class="btn-outline" onclick="showArticles()">Ver todos los artículos</button>
-        </div>
-    `;
-    
-    contentModal.style.display = 'block';
-}
